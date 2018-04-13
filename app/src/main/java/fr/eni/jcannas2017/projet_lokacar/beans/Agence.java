@@ -7,4 +7,6 @@ import android.arch.persistence.room.PrimaryKey;
 public class Agence {
     @PrimaryKey
     private int id;
+
+    //TODO Finir
 }
