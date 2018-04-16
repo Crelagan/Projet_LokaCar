@@ -9,7 +9,7 @@ import java.util.List;
 
 import fr.eni.jcannas2017.projet_lokacar.beans.Gerant;
 
-public interface Gerantdao {
+public interface GerantDao {
 
     @Query("SELECT * FROM Gerant")
     List<Gerant> getAllGerant();
