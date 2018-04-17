@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:id="@+id/layout_chargement"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        >
+
+        <fragment
+            android:id="@+id/filtre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="fr.eni.jcannas2017.projet_lokacar.fragment.FiltreRechercheFragment"
+            android:layout_weight="0.8"
+            />
+
+        <fragment
+            android:id="@+id/recherche"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="fr.eni.jcannas2017.projet_lokacar.fragment.ListeRechercheFragment"
+            android:layout_weight="0.2"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

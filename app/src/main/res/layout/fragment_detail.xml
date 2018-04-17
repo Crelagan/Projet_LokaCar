@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.DetailFragment"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvMarque"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Marque :"
+                android:layout_weight="0.3"/>
+
+            <EditText
+                android:id="@+id/etMarque"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:layout_weight="0.7"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvModele"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Modele :"
+                android:layout_weight="0.3"/>
+
+            <EditText
+                android:id="@+id/etModele"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvPuissance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Puissance :"
+                android:layout_weight="0.3"/>
+
+            <EditText
+                android:id="@+id/etPuissance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_weight="0.2"/>
+
+            <TextView
+                android:id="@+id/tvPuissanceUnite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="CV"
+                android:layout_weight="0.2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvBoite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Puissance :"
+                android:layout_weight="0.3"/>
+
+            <CheckBox
+                android:id="@+id/cbBoite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="automatique"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvConso"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Puissance :"
+                android:layout_weight="0.3"/>
+
+            <EditText
+                android:id="@+id/etConso"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_weight="0.2"/>
+
+            <TextView
+                android:id="@+id/tvConsoUnite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="L/100km"
+                android:layout_weight="0.2"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvCarburant"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="Ville :"
+                android:gravity="center_vertical"/>
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:id="@+id/spCarburant" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvImmat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Modele :"
+                android:layout_weight="0.3"/>
+
+            <EditText
+                android:id="@+id/etImmat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvPrix"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Prix :"
+                android:layout_weight="0.3"/>
+
+            <EditText
+                android:id="@+id/etPrix"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_weight="0.2"/>
+
+            <TextView
+                android:id="@+id/tvPrixUnite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="€/jour"
+                android:layout_weight="0.2"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:weightSum="1">
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="Ville :"
+                android:gravity="center_vertical"/>
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:id="@+id/spType" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:paddingTop="25dp">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnLoc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Louer"
+        android:layout_weight="0.5"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnRetour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Retour"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
+    <!-- TODO: Update blank fragment layout -->
+
+
+</LinearLayout>
