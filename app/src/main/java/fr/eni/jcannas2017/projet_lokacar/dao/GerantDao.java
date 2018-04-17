@@ -1,5 +1,6 @@
 package fr.eni.jcannas2017.projet_lokacar.dao;
 
+import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import fr.eni.jcannas2017.projet_lokacar.beans.Gerant;
 
+@Dao
 public interface GerantDao {
 
     @Query("SELECT * FROM Gerant")

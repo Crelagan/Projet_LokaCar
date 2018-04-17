@@ -22,10 +22,10 @@ public class Location {
     private int vehiculeId;
 
     @ColumnInfo(name = "date_depart")
-    private Date depart;
+    private String depart;
 
     @ColumnInfo(name = "date_retour")
-    private Date retour;
+    private String retour;
 
     @ColumnInfo(name = "duree")
     private int duree;
@@ -33,7 +33,7 @@ public class Location {
     public Location() {
     }
 
-    public Location(int id, int clientId, int vehiculeId, Date depart, Date retour, int duree) {
+    public Location(int id, int clientId, int vehiculeId, String depart, String retour, int duree) {
         this.id = id;
         this.clientId = clientId;
         this.vehiculeId = vehiculeId;
@@ -66,19 +66,19 @@ public class Location {
         this.vehiculeId = vehiculeId;
     }
 
-    public Date getDepart() {
+    public String getDepart() {
         return depart;
     }
 
-    public void setDepart(Date depart) {
+    public void setDepart(String depart) {
         this.depart = depart;
     }
 
-    public Date getRetour() {
+    public String getRetour() {
         return retour;
     }
 
-    public void setRetour(Date retour) {
+    public void setRetour(String retour) {
         this.retour = retour;
     }
 
