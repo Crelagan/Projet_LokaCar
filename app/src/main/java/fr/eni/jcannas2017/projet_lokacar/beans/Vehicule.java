@@ -2,10 +2,15 @@ package fr.eni.jcannas2017.projet_lokacar.beans;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 @Entity
-public class Vehicule {
+public class Vehicule implements Parcelable{
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -43,6 +48,9 @@ public class Vehicule {
     @ColumnInfo(name = "etat_loc")
     private int etatLoc;
 
+    @ForeignKey(entity = Agence.class, parentColumns = "id", childColumns = "agenceId", onDelete = CASCADE)
+    private int agenceId;
+
     public Vehicule() {
     }
 
@@ -61,6 +69,34 @@ public class Vehicule {
         this.type = type;
         this.etatLoc = etatLoc;
     }
+
+    protected Vehicule(Parcel in) {
+        id = in.readInt();
+        marque = in.readString();
+        modele = in.readString();
+        designation = in.readString();
+        puissanceAdmin = in.readInt();
+        boiteVitesse = in.readString();
+        consomation = in.readDouble();
+        carburant = in.readString();
+        immatriculation = in.readString();
+        tarif = in.readDouble();
+        type = in.readString();
+        etatLoc = in.readInt();
+        agenceId = in.readInt();
+    }
+
+    public static final Creator<Vehicule> CREATOR = new Creator<Vehicule>() {
+        @Override
+        public Vehicule createFromParcel(Parcel in) {
+            return new Vehicule(in);
+        }
+
+        @Override
+        public Vehicule[] newArray(int size) {
+            return new Vehicule[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -156,5 +192,35 @@ public class Vehicule {
 
     public void setEtatLoc(int etatLoc) {
         this.etatLoc = etatLoc;
+    }
+
+    public int getAgenceId() {
+        return agenceId;
+    }
+
+    public void setAgenceId(int agenceId) {
+        this.agenceId = agenceId;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(marque);
+        dest.writeString(modele);
+        dest.writeString(designation);
+        dest.writeInt(puissanceAdmin);
+        dest.writeString(boiteVitesse);
+        dest.writeDouble(consomation);
+        dest.writeString(carburant);
+        dest.writeString(immatriculation);
+        dest.writeDouble(tarif);
+        dest.writeString(type);
+        dest.writeInt(etatLoc);
+        dest.writeInt(agenceId);
     }
 }
