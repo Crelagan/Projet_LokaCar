@@ -30,7 +30,7 @@ public interface LocationDao {
     List<Client> findClientByRetour(String retour);
 
     @Query("SELECT Vehicule.id, Vehicule.marque, Vehicule.modele, Vehicule.designation, Vehicule.puissance_admin, Vehicule.boite_vitesse, " +
-            "Vehicule.consomation, Vehicule.carburant, Vehicule.immatriculation, Vehicule.tarif, Vehicule.type , Vehicule.etat_loc FROM Location INNER JOIN Vehicule ON Vehicule.id = vehiculeId WHERE date_retour >= :retour")
+            "Vehicule.consomation, Vehicule.carburant, Vehicule.immatriculation, Vehicule.tarif, Vehicule.type , Vehicule.etat_loc, Vehicule.agenceId FROM Location INNER JOIN Vehicule ON Vehicule.id = vehiculeId WHERE date_retour >= :retour")
     List<Vehicule> findVehiculeByRetour(String retour);
 
     @Insert

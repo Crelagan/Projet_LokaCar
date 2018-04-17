@@ -23,6 +23,9 @@ public interface VehiculeDao {
             "AND type = :type AND consomation = :consomation")
     List<Vehicule> findVehiculeByOptions(String marque, String modele, String carburant, String boiteVitesse, String type, double consomation);
 
+    @Query(("SELECT * FROM Vehicule WHERE agenceId = :idAgence"))
+    List<Vehicule> findVehiculeByAgence(int idAgence);
+
     @Insert
     void insertAllVehicules(Vehicule... vehicules);
 
