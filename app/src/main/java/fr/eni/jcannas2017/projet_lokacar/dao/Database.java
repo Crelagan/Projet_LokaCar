@@ -13,10 +13,9 @@ import fr.eni.jcannas2017.projet_lokacar.beans.Vehicule;
 version = 1)
 public abstract class Database extends RoomDatabase {
 
-
-    public abstract AgenceDao getAgenceDao();
-    public abstract ClientDao getClientDao();
-    public abstract GerantDao getGerantDao();
-    public abstract LocationDao getLocationDao();
-    public abstract VehiculeDao getVehiculeDao();
+    public abstract AgenceDao agenceDao();
+    public abstract ClientDao clientDao();
+    public abstract GerantDao gerantDao();
+    public abstract LocationDao locationDao();
+    public abstract VehiculeDao vehiculeDao();
 }
