@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
 
             Log.i("TAG", "numéro de l'agence à envoyer : " + agence.getId());
 
-            intent.putExtra("idAgence", agence.getId());
+            intent.putExtra("agence", agence);
             startActivity(intent);
         }
         else

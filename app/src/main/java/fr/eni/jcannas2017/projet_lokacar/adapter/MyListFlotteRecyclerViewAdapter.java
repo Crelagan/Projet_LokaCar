@@ -19,10 +19,10 @@ import java.util.List;
  */
 public class MyListFlotteRecyclerViewAdapter extends RecyclerView.Adapter<MyListFlotteRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<String> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyListFlotteRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyListFlotteRecyclerViewAdapter(List<String> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -37,8 +37,8 @@ public class MyListFlotteRecyclerViewAdapter extends RecyclerView.Adapter<MyList
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position));
+        /*holder.mContentView.setText(mValues.get(position).content);*/
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +61,7 @@ public class MyListFlotteRecyclerViewAdapter extends RecyclerView.Adapter<MyList
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public String mItem;
 
         public ViewHolder(View view) {
             super(view);
