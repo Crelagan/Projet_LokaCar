@@ -28,6 +28,7 @@ public class ListFlotteFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private RecyclerView recyclerView;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -46,6 +47,10 @@ public class ListFlotteFragment extends Fragment {
         return fragment;
     }
 
+    public void setAdapter(MyListFlotteRecyclerViewAdapter adapter){
+        recyclerView.setAdapter(adapter);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,9 @@ public class ListFlotteFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_listflotte_list, container, false);
 
+        recyclerView = (RecyclerView) view;
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -69,7 +77,7 @@ public class ListFlotteFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyListFlotteRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            /*recyclerView.setAdapter(new MyListFlotteRecyclerViewAdapter(DummyContent.ITEMS, mListener));*/
         }
         return view;
     }
@@ -104,6 +112,6 @@ public class ListFlotteFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(String item);
     }
 }

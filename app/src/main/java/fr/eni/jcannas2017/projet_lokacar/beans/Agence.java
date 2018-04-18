@@ -4,11 +4,13 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 @Entity
-public class Agence {
+public class Agence implements Parcelable{
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -29,6 +31,25 @@ public class Agence {
         this.codePostal = codePostal;
         this.ville = ville;
     }
+
+    protected Agence(Parcel in) {
+        id = in.readInt();
+        codePostal = in.readString();
+        ville = in.readString();
+        gerantId = in.readInt();
+    }
+
+    public static final Creator<Agence> CREATOR = new Creator<Agence>() {
+        @Override
+        public Agence createFromParcel(Parcel in) {
+            return new Agence(in);
+        }
+
+        @Override
+        public Agence[] newArray(int size) {
+            return new Agence[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -60,5 +81,18 @@ public class Agence {
 
     public void setGerantId(int gerantId) {
         this.gerantId = gerantId;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(codePostal);
+        dest.writeString(ville);
+        dest.writeInt(gerantId);
     }
 }
