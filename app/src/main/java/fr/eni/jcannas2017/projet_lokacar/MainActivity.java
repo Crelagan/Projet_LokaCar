@@ -58,20 +58,22 @@ public class MainActivity extends AppCompatActivity {
         tvMdp = (TextView) findViewById(R.id.editText4);
 
         tvCodePostal = (TextView) findViewById(R.id.editText2);
-        tvCodePostal.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (tvCodePostal.getText() != null){
+
+
+        new AllVilleInSpinner().execute();
+
+            tvCodePostal.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+
 
                     new EditSpinnerList().execute(tvCodePostal.getText().toString());
 
+                    return false;
                 }
-                else{
-                    new AllVilleInSpinner().execute();
-                }
-                return false;
-            }
-        });
+            });
+
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
