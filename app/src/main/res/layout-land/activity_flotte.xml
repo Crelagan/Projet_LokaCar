@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <fragment
+            android:id="@+id/listeFlotte"
+            android:name="fr.eni.jcannas2017.projet_lokacar.fragment.ListFlotteFragment"
+            class="fr.eni.jcannas2017.projet_lokacar.fragment.ListFlotteFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.50" />
+
+        <LinearLayout
+            android:id="@+id/layout_creation"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.50">
+            <fragment
+                android:id="@+id/creation"
+                android:name="fr.eni.jcannas2017.projet_lokacar.fragment.CreationFragment"
+                class="fr.eni.jcannas2017.projet_lokacar.fragment.CreationFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_detail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.50">
+            <fragment
+                android:id="@+id/detail"
+                android:name="fr.eni.jcannas2017.projet_lokacar.fragment.DetailFragment"
+                class="fr.eni.jcannas2017.projet_lokacar.fragment.DetailFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

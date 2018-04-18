@@ -21,7 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FlotteActivity"></activity>
+        <activity android:name=".FlotteActivity" />
+        <activity android:name=".CreationVehiculeActivity" />
+        <activity android:name=".DetailVehiculeActivity" />
+        <activity android:name=".RechercheActivity" />
+        <activity android:name=".LocationActivity"></activity>
     </application>
 
 </manifest>
