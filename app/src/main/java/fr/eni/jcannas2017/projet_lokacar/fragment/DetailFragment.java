@@ -4,14 +4,17 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import fr.eni.jcannas2017.projet_lokacar.R;
+import fr.eni.jcannas2017.projet_lokacar.beans.Vehicule;
 
 
 /**
@@ -99,6 +102,58 @@ public class DetailFragment extends Fragment {
     public void setText(String content) {
         EditText edit = getView().findViewById(R.id.etModele);
         edit.setText(content);
+    }
+
+    public void chargeDetail(Vehicule vehicule) {
+
+        Log.i("TAG", "marque : " + vehicule.getMarque());
+        Log.i("TAG", "modele : " + vehicule.getModele());
+        Log.i("TAG", "boite : " + vehicule.getBoiteVitesse());
+        Log.i("TAG", "conso : " + String.valueOf(vehicule.getConsomation()));
+        Log.i("TAG", "carburant : " + vehicule.getCarburant());
+        Log.i("TAG", "immat : " + vehicule.getImmatriculation());
+        Log.i("TAG", "prix : " + String.valueOf(vehicule.getTarif()));
+        Log.i("TAG", "type : " + String.valueOf(vehicule.getType()));
+        Log.i("TAG", "puissance : " + vehicule.getPuissanceAdmin());
+
+
+        EditText marque = getView().findViewById(R.id.etMarque);
+        marque.setText(vehicule.getMarque());
+        marque.setEnabled(false);
+
+        EditText modele = getView().findViewById(R.id.etModele);
+        modele.setText(vehicule.getModele());
+        modele.setEnabled(false);
+
+        EditText puissance = getView().findViewById(R.id.etPuissance);
+        puissance.setText(String.valueOf(vehicule.getPuissanceAdmin()));
+        puissance.setEnabled(false);
+
+        CheckBox boite = getView().findViewById(R.id.cbBoite);
+        boite.setEnabled(false);
+        if (vehicule.getBoiteVitesse().equals("automatique")){
+            boite.setChecked(true);
+        }else boite.setChecked(false);
+
+        EditText conso = getView().findViewById(R.id.etConso);
+        conso.setText(String.valueOf(vehicule.getConsomation()));
+        conso.setEnabled(false);
+
+        EditText carburant = getView().findViewById(R.id.etCarburant);
+        carburant.setText(vehicule.getCarburant());
+        carburant.setEnabled(false);
+
+        EditText immat = getView().findViewById(R.id.etImmat);
+        immat.setText(vehicule.getImmatriculation());
+        immat.setEnabled(false);
+
+        EditText prix = getView().findViewById(R.id.etPrix);
+        prix.setText(String.valueOf(vehicule.getTarif()));
+        prix.setEnabled(false);
+
+        EditText type = getView().findViewById(R.id.etType);
+        type.setText(String.valueOf(vehicule.getType()));
+        type.setEnabled(false);
     }
 
     /**
