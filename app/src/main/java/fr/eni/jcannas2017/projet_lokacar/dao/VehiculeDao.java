@@ -16,15 +16,20 @@ public interface VehiculeDao {
     @Query("SELECT * FROM Vehicule")
     List<Vehicule> getAllVehicules();
 
-    @Query("SELECT * FROM Vehicule WHERE etat_loc = :etatLoc")
-    List<Vehicule> findVehiculeByEtatloc(int etatLoc);
-
-    @Query("SELECT * FROM Vehicule WHERE marque = :marque AND modele = :modele AND carburant = :carburant AND boite_vitesse = :boiteVitesse " +
-            "AND type = :type AND consomation = :consomation")
-    List<Vehicule> findVehiculeByOptions(String marque, String modele, String carburant, String boiteVitesse, String type, double consomation);
-
     @Query(("SELECT * FROM Vehicule WHERE agenceId = :idAgence"))
     List<Vehicule> findVehiculeByAgence(int idAgence);
+
+    @Query("SELECT * FROM Vehicule WHERE agenceId = :idAgence AND tarif <= :prix AND carburant LIKE :carburant AND boite_vitesse LIKE :boiteVitesse " +
+            "AND type LIKE :type AND etat_loc = :etatLoc")
+    List<Vehicule> findVehiculeByOptionsTarif(int idAgence, double prix, String  carburant, String  boiteVitesse, String type, int etatLoc);
+
+    @Query("SELECT * FROM Vehicule WHERE agenceId = :idAgence AND tarif > :prix AND carburant LIKE :carburant AND boite_vitesse LIKE :boiteVitesse " +
+            "AND type LIKE :type AND etat_loc = :etatLoc")
+    List<Vehicule> findVehiculeByOptionsTarifChere(int idAgence, double prix, String  carburant, String  boiteVitesse, String type, int etatLoc);
+
+    @Query("SELECT * FROM Vehicule WHERE agenceId = :idAgence AND carburant LIKE :carburant AND boite_vitesse LIKE :boiteVitesse " +
+            "AND type LIKE :type AND etat_loc = :etatLoc")
+    List<Vehicule> findVehiculeByOptionsSansTarif(int idAgence, String  carburant, String  boiteVitesse, String type, int etatLoc);
 
     @Insert
     void insertAllVehicules(Vehicule... vehicules);

@@ -83,8 +83,9 @@ public class FlotteActivity extends AppCompatActivity
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(FlotteActivity.this, "Recherche !!!!", Toast.LENGTH_LONG).show();
+                /*Toast.makeText(FlotteActivity.this, "Recherche !!!!", Toast.LENGTH_LONG).show();*/
                 Intent intent = new Intent(FlotteActivity.this, RechercheActivity.class);
+                intent.putExtra("agence", agence);
                 startActivity(intent);
             }
         });
@@ -101,6 +102,8 @@ public class FlotteActivity extends AppCompatActivity
             db.beginTransaction();
             vehicules = db.vehiculeDao().findVehiculeByAgence(agence.getId());
             db.endTransaction();
+
+            Log.i("TAG", "Nbre de vehicule liste par agence (norm = 3= : " + vehicules.size());
 
             return vehicules;
         }
