@@ -19,6 +19,9 @@ public interface ClientDao {
     @Query("SELECT * FROM Client WHERE id IN (:clientIds)")
     List<Client> loadClientByIds(int[] clientIds);
 
+    @Query("SELECT * FROM Client WHERE nom Like :nom")
+    List<Client> loadClientByNoms(String nom);
+
     @Query("SELECT * FROM Client WHERE nom LIKE :nom AND prenom LIKE :prenom")
     Client findClientByNomPrenom(String nom, String prenom);
 
