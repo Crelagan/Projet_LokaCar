@@ -33,13 +33,13 @@ public class Location {
     public Location() {
     }
 
-    public Location( int clientId, int vehiculeId, String depart, String retour, int duree) {
+    /*public Location( int clientId, int vehiculeId, String depart, String retour, int duree) {
         this.clientId = clientId;
         this.vehiculeId = vehiculeId;
         this.depart = depart;
         this.retour = retour;
         this.duree = duree;
-    }
+    }*/
 
     public int getId() {
         return id;

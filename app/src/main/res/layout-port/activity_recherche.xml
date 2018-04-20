@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             class="fr.eni.jcannas2017.projet_lokacar.fragment.FiltreRechercheFragment"
-            android:layout_weight="0.8"
+            android:layout_weight="0.5"
             />
 
         <fragment
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             class="fr.eni.jcannas2017.projet_lokacar.fragment.ListeRechercheFragment"
-            android:layout_weight="0.2"
+            android:layout_weight="0.5"
             />
 
     </LinearLayout>

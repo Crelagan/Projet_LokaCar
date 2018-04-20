@@ -62,16 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
         new AllVilleInSpinner().execute();
 
-            tvCodePostal.setOnKeyListener(new View.OnKeyListener() {
-                @Override
-                public boolean onKey(View v, int keyCode, KeyEvent event) {
+        tvCodePostal.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
 
 
-                    new EditSpinnerList().execute(tvCodePostal.getText().toString());
+                new EditSpinnerList().execute(tvCodePostal.getText().toString());
 
-                    return false;
-                }
-            });
+                return false;
+            }
+        });
 
 
 
@@ -93,6 +93,19 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = (Button) findViewById((R.id.btn));
         btn.setOnClickListener(new checkLogin());
+
+        Button btnTest = (Button) findViewById(R.id.btnTest);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FlotteActivity.class);
+
+                Log.i("TAG", "numéro de l'agence à envoyer : " + agence.getId());
+
+                intent.putExtra("agence", agence);
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -266,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public class EditSpinnerList extends AsyncTask<String, Void, List<Agence>> {
+public class EditSpinnerList extends AsyncTask<String, Void, List<Agence>> {
 
         List<Agence> atAgences;
 

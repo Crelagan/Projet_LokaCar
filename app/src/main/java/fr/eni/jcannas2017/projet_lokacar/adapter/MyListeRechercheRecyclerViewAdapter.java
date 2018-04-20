@@ -19,11 +19,11 @@ import java.util.List;
  */
 public class MyListeRechercheRecyclerViewAdapter extends RecyclerView.Adapter<MyListeRechercheRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<String> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyListeRechercheRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
+    public MyListeRechercheRecyclerViewAdapter(List<String> modeles, OnListFragmentInteractionListener listener) {
+        mValues = modeles;
         mListener = listener;
     }
 
@@ -37,8 +37,8 @@ public class MyListeRechercheRecyclerViewAdapter extends RecyclerView.Adapter<My
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position));
+        /*holder.mContentView.setText(mValues.get(position).content);*/
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +61,7 @@ public class MyListeRechercheRecyclerViewAdapter extends RecyclerView.Adapter<My
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public String mItem;
 
         public ViewHolder(View view) {
             super(view);

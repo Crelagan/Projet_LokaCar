@@ -29,6 +29,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import fr.eni.jcannas2017.projet_lokacar.beans.Agence;
 import fr.eni.jcannas2017.projet_lokacar.beans.Client;
 import fr.eni.jcannas2017.projet_lokacar.beans.Location;
 import fr.eni.jcannas2017.projet_lokacar.beans.Vehicule;
@@ -44,6 +45,7 @@ public class LocationActivity extends AppCompatActivity {
     EditText dateDebut, dateFin, marque, modele, duree, prix, nom, prenom, adresse, telephone, codePostal;
     Vehicule vehicule;
     Calendar debut, fin;
+    private Agence agence;
     Database db;
     Client client;
 
@@ -59,6 +61,7 @@ public class LocationActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         vehicule = intent.getParcelableExtra("vehicule");
+        agence = intent.getParcelableExtra("agence");
 
         btnDateDebut = (Button) findViewById(R.id.btn_dateDebut);
         dateDebut = (EditText) findViewById(R.id.etDateDebut);
@@ -122,6 +125,10 @@ public class LocationActivity extends AppCompatActivity {
 
                 Log.i("TAG LOG", loc.toString());
                 new insertLoc().execute(loc);
+
+                Intent intent = new Intent(LocationActivity.this, FlotteActivity.class);
+                intent.putExtra("agence", agence);
+                startActivity(intent);
             }
         });
 
@@ -210,11 +217,17 @@ public class LocationActivity extends AppCompatActivity {
             Log.i("TAG", "debut");
             Log.i("TAGLOG", String.valueOf(locations[0].getId()));
 
-            db.beginTransaction();
+            /*db.beginTransaction();*/
             db.locationDao().insertLocation(locations[0]);
-            db.endTransaction();
+            /*db.endTransaction();*/
+
+            vehicule.setEtatLoc(1);
+            db.vehiculeDao().updateVehicule(vehicule);
 
             Log.i("TAG", "fin");
+            List<Location> listL = new ArrayList<Location>();
+            listL = db.locationDao().getAllLocation();
+            Log.i("TAG insert", "Nbre de loc en BDD : " + listL.size() + " Adresse BDD : " + getDatabasePath("LOKACAR.db").getAbsolutePath());
             return null;
         }
     }
@@ -270,7 +283,7 @@ public class LocationActivity extends AppCompatActivity {
 
         final Dialog dialog = new Dialog(LocationActivity.this);
         dialog.setContentView(R.layout.dialog_layout);
-        dialog.setTitle("Mon cul");
+        dialog.setTitle("Liste des clients");
 
         ListView lstv = dialog.findViewById(R.id.list);
         lstv.setAdapter(adapter);
