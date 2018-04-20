@@ -10,7 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
+/*import android.support.v7.widget.CardView;*/
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -76,6 +76,7 @@ public class FlotteActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                Intent intent = new Intent(FlotteActivity.this, CreationVehiculeActivity.class);
+               intent.putExtra("agence", agence);
                startActivity(intent);
             }
         });
@@ -167,6 +168,7 @@ public class FlotteActivity extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(Vehicule item) {
         Intent intent = new Intent(FlotteActivity.this, DetailVehiculeActivity.class);
+        intent.putExtra("agence", agence);
         intent.putExtra("vehicule", item);
         startActivity(intent);
     }

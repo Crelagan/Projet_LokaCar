@@ -91,12 +91,10 @@ public class RechercheActivity extends AppCompatActivity implements FiltreRecher
     protected void onStart() {
         super.onStart();
 
-        Log.i("TAG", "Entre dans le onStart");
 
         sPrix.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.i("TAG", "Entre dans le changement d'item du spinner Prix");
 
                 mapChoix.remove("prix");
                 mapChoix.put("prix", sPrix.getSelectedItem().toString());

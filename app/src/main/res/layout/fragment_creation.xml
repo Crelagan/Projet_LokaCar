@@ -86,21 +86,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:weightSum="1">
         <TextView
             android:id="@+id/tvBoite"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Puissance :"
+            android:text="Boite de vitesse :"
             android:layout_weight="0.3"/>
 
-        <CheckBox
-            android:id="@+id/cbBoite"
+        <Spinner
+            android:id="@+id/spBV"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:text="automatique"/>
+            android:layout_height="match_parent"
+            android:layout_weight="0.7" />
 
     </LinearLayout>
 
@@ -112,7 +111,7 @@
             android:id="@+id/tvConso"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Puissance :"
+            android:text="Consommation :"
             android:layout_weight="0.3"/>
 
         <EditText
@@ -139,7 +138,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
-            android:text="Ville :"
+            android:text="Carburant :"
             android:gravity="center_vertical"/>
         <Spinner
             android:layout_width="0dp"
@@ -156,7 +155,7 @@
             android:id="@+id/tvImmat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Modele :"
+            android:text="Immatriculation :"
             android:layout_weight="0.3"/>
 
         <EditText
