@@ -33,8 +33,7 @@ public class Location {
     public Location() {
     }
 
-    public Location(int id, int clientId, int vehiculeId, String depart, String retour, int duree) {
-        this.id = id;
+    public Location( int clientId, int vehiculeId, String depart, String retour, int duree) {
         this.clientId = clientId;
         this.vehiculeId = vehiculeId;
         this.depart = depart;
@@ -88,5 +87,17 @@ public class Location {
 
     public void setDuree(int duree) {
         this.duree = duree;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", clientId=" + clientId +
+                ", vehiculeId=" + vehiculeId +
+                ", depart='" + depart + '\'' +
+                ", retour='" + retour + '\'' +
+                ", duree=" + duree +
+                '}';
     }
 }
