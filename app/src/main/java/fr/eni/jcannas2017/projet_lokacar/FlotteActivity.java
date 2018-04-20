@@ -10,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -142,14 +143,15 @@ public class FlotteActivity extends AppCompatActivity
     private void miseAJourListVehicule(List<Vehicule> vehicules) {
 
         vehiculeList = vehicules;
-        List<String> modeles = new ArrayList<String>();
+        /*List<String> modeles = new ArrayList<String>();
 
 
         for (int i = 0; i<vehicules.size(); i++){
             modeles.add(vehicules.get(i).getModele());
-        }
+        }*/
 
-        flotteFragment.setAdapter(new MyListFlotteRecyclerViewAdapter(modeles, FlotteActivity.this));
+        flotteFragment.setAdapter(new MyListFlotteRecyclerViewAdapter(vehiculeList, FlotteActivity.this));
+
 
         //adapter = new RecyclerView.Adapter(modeles, FlotteActivity.this) /*ArrayAdapter(FlotteActivity.this, R.layout.fragment_listflotte, modeles)*/;
 
@@ -163,8 +165,9 @@ public class FlotteActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListFragmentInteraction(String item) {
+    public void onListFragmentInteraction(Vehicule item) {
         Intent intent = new Intent(FlotteActivity.this, DetailVehiculeActivity.class);
+        intent.putExtra("vehicule", item);
         startActivity(intent);
     }
 }

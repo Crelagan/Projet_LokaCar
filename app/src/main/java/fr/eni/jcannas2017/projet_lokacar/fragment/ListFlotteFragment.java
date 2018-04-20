@@ -3,6 +3,7 @@ package fr.eni.jcannas2017.projet_lokacar.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 
 import fr.eni.jcannas2017.projet_lokacar.R;
 import fr.eni.jcannas2017.projet_lokacar.adapter.MyListFlotteRecyclerViewAdapter;
+import fr.eni.jcannas2017.projet_lokacar.beans.Vehicule;
 import fr.eni.jcannas2017.projet_lokacar.dummy.DummyContent;
 import fr.eni.jcannas2017.projet_lokacar.dummy.DummyContent.DummyItem;
 
@@ -68,6 +70,7 @@ public class ListFlotteFragment extends Fragment {
         recyclerView = (RecyclerView) view;
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
+
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -77,6 +80,7 @@ public class ListFlotteFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
+
             /*recyclerView.setAdapter(new MyListFlotteRecyclerViewAdapter(DummyContent.ITEMS, mListener));*/
         }
         return view;
@@ -112,6 +116,6 @@ public class ListFlotteFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(String item);
+        void onListFragmentInteraction(Vehicule item);
     }
 }
